@@ -17,6 +17,9 @@ def success(path: str, msg: str):
 @post("/asstosrt")
 def ass_to_srt():
     response.content_type = 'application/json'
+    if request.json["eventType"] == "Test":
+        response.status = 200
+        return dumps({"status": 200, "message": "Success"})
     try:
         ep = EpisodeFile(request.json)
     except JSONDecodeError:

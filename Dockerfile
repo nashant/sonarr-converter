@@ -5,8 +5,8 @@ EXPOSE 8080/tcp
 ADD ./src /src
 WORKDIR /src
 
-RUN apt-get update -y \
- && apt-get install -yq --no-install-recommends ffmpeg \
+RUN apt-get update -yq \
+ && apt-get install -yq --no-install-recommends ffmpeg curl \
  && pip install --upgrade pip \
  && pip install -r requirements.txt \
  && rm -r /var/cache/apt

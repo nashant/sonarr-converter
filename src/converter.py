@@ -43,7 +43,7 @@ def ass_to_srt():
 
 @get("/health")
 def health():
-    return 200
+    return dumps({"status": 200, "message": "All ok"})
 
 
 run(host="localhost", port=8080, debug=True)

@@ -1,4 +1,4 @@
-from bottle import post, request, response, run
+from bottle import get, post, request, response, run
 from simplejson.errors import JSONDecodeError
 from json import dumps
 import ffmpeg
@@ -41,4 +41,9 @@ def ass_to_srt():
         return error(500, e.stderr.decode().strip().split('\n')[-1])
 
 
-run(host="localhost", port=8008, debug=True)
+@get("/health")
+def health():
+    return 200
+
+
+run(host="localhost", port=8080, debug=True)

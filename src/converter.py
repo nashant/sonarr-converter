@@ -46,4 +46,4 @@ def health():
     return dumps({"status": 200, "message": "All ok"})
 
 
-run(host="localhost", port=8080, debug=True)
+run(host="0.0.0.0", port=8080, debug=True)

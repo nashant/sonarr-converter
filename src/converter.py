@@ -44,6 +44,14 @@ def ass_to_srt():
         return error(500, e.stderr.decode().strip().split('\n')[-1])
 
 
+@post("/print")
+def print_request():
+    print(dumps(request.json))
+    response.content_type = 'application/json'
+    response.status = 200
+    return dumps({"status": 200, "message": "Success"})
+
+
 @get("/health")
 def health():
     return dumps({"status": 200, "message": "All ok"})
